@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import { Button, Col, FormControl, InputGroup, Row } from "react-bootstrap";
+import { PuffLoader } from "react-spinners";
 import Event from "../Components/Event";
 
 const Home = () => {
@@ -9,25 +10,35 @@ const Home = () => {
   const [displayEvents, setDisplayEvents] = useState(events);
   const [searchResult, setSearchResult] = useState(null);
   const [totalFound, setTotalFound] = useState(null);
+  const [spinner, setSpinner] = useState(true);
 
   const inputRef = useRef();
 
   useEffect(() => {
-    axios("http://localhost:5000/events").then((data) => {
-      setEvents(data.data);
-      setDisplayEvents(data.data);
-    });
+    setSpinner(true);
+    setTimeout(() => {
+      axios("http://localhost:5000/events").then((data) => {
+        setEvents(data.data);
+        setDisplayEvents(data.data);
+      });
+
+      setSpinner(false);
+    }, 1000);
   }, []);
 
   const handleSearchFilter = () => {
-    const searchText = inputRef.current.value.toLowerCase();
-    const searchedEvents = events.filter((event) =>
-      event.title.toLowerCase().includes(searchText)
-    );
-    setDisplayEvents(searchedEvents);
-    setSearchResult(searchText);
-    setTotalFound(searchedEvents.length);
-    inputRef.current.value = "";
+    setSpinner(true);
+    setTimeout(() => {
+      const searchText = inputRef.current.value.toLowerCase();
+      const searchedEvents = events.filter((event) =>
+        event.title.toLowerCase().includes(searchText)
+      );
+      setDisplayEvents(searchedEvents);
+      setSearchResult(searchText);
+      setTotalFound(searchedEvents.length);
+      setSpinner(false);
+      inputRef.current.value = "";
+    }, 1500);
   };
 
   return (
@@ -63,15 +74,21 @@ const Home = () => {
         </small>
       )}
 
-      <section className="container my-4">
-        <Row xs={1} md={3} lg={4} className="g-4">
-          {displayEvents.map((event) => (
-            <Col key={event._id}>
-              <Event event={event}></Event>
-            </Col>
-          ))}
-        </Row>
-      </section>
+      {spinner ? (
+        <div className="spinner-box">
+          <PuffLoader color="#3f90fc" size={50} />
+        </div>
+      ) : (
+        <section className="container my-4">
+          <Row xs={1} md={3} lg={4} className="g-4">
+            {displayEvents.map((event) => (
+              <Col key={event._id}>
+                <Event event={event}></Event>
+              </Col>
+            ))}
+          </Row>
+        </section>
+      )}
     </div>
   );
 };

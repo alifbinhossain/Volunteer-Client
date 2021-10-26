@@ -3,8 +3,17 @@ import { Card } from "react-bootstrap";
 
 const Event = ({ event }) => {
   const { title, img } = event;
-  const bg = ["orange", "orange2", "blue", "blue2", "green", "green2"];
-  const randomBg = bg[Math.floor(Math.random() * 6)];
+  const bg = [
+    "orange",
+    "orange2",
+    "blue",
+    "blue2",
+    "green",
+    "green2",
+    "brown",
+    "brown2",
+  ];
+  const randomBg = bg[Math.floor(Math.random() * 8)];
 
   return (
     <Card className="event">
