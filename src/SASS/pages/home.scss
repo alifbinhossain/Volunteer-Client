@@ -1,5 +1,19 @@
 .home {
-  background-color: aquamarine;
-  max-height: 100vh;
-  padding: 3rem;
+  padding: 0.8rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.85)
+    ),
+    url(../../images/home-bg.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top;
+
+  h1 {
+    font-family: "Jost", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    tab-size: 60px;
+  }
 }

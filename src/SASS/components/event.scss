@@ -1,0 +1,55 @@
+.event {
+  min-height: 330px;
+  border: none !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+
+  img {
+    height: 250px;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  &__body {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    &--title {
+      font-size: 18px !important;
+    }
+  }
+
+  .orange {
+    background-color: $color-orange-light;
+  }
+  .orange2 {
+    background-color: $color-orange-dark;
+  }
+  .blue {
+    background-color: $color-blue;
+  }
+  .blue2 {
+    background-color: $color-blue-2;
+  }
+  .green {
+    background-color: $color-green-light;
+  }
+  .green2 {
+    background-color: $color-green-dark;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  .event {
+    min-height: 400px;
+    img {
+      min-height: 350px;
+    }
+  }
+}

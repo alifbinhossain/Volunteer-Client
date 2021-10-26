@@ -1,5 +1,10 @@
 ////BASE FILES
 @import "./SASS/base/base.scss";
+@import "./SASS/base/variables.scss";
 
 ////PAGES
 @import "./SASS/pages/home.scss";
+
+////COMPONENTS
+@import "./SASS/components/header.scss";
+@import "./SASS/components/event.scss";
