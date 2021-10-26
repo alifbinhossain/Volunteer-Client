@@ -1,5 +1,5 @@
 .home {
-  padding: 0.8rem 0;
+  padding: 0.8rem 3rem;
   background-image: linear-gradient(
       to right bottom,
       rgba(255, 255, 255, 0.95),
@@ -9,11 +9,41 @@
   background-size: cover;
   background-attachment: fixed;
   background-position: top;
+  min-height: 100vh;
 
   h1 {
     font-family: "Jost", sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    tab-size: 60px;
+    tab-size: 50px;
+    color: $color-blue;
+  }
+
+  .flexible-width {
+    width: 25%;
+  }
+  .result {
+    display: block;
+    text-align: center;
+    width: max-content;
+    margin: 5px auto;
+    color: $color-orange-dark;
+
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  .home {
+    padding: 0.8rem 0.5rem;
+
+    .flexible-width {
+      width: 90%;
+    }
   }
 }

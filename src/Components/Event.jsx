@@ -5,7 +5,6 @@ const Event = ({ event }) => {
   const { title, img } = event;
   const bg = ["orange", "orange2", "blue", "blue2", "green", "green2"];
   const randomBg = bg[Math.floor(Math.random() * 6)];
-  console.log(randomBg);
 
   return (
     <Card className="event">
