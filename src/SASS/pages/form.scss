@@ -1,0 +1,36 @@
+.form {
+  min-height: 88vh;
+  background-color: $color-green-light;
+  padding: 1rem;
+
+  img {
+    display: block;
+    margin: 1rem auto;
+    width: 12rem;
+  }
+
+  .login__form,
+  .register__form {
+    min-height: 260px;
+    width: 500px;
+    background-color: rgba(0, 0, 0, 0.75);
+    margin: 2rem auto;
+    border-radius: 8px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  .form {
+    padding: 0.8rem;
+
+    .login__form,
+    .register__form {
+      min-height: 560px;
+      width: max-content;
+      padding: 1rem;
+    }
+  }
+}

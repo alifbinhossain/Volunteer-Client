@@ -17,12 +17,13 @@ const Home = () => {
   useEffect(() => {
     setSpinner(true);
     setTimeout(() => {
+      setSpinner(true);
       axios("http://localhost:5000/events").then((data) => {
+        console.log(data);
         setEvents(data.data);
         setDisplayEvents(data.data);
+        setSpinner(false);
       });
-
-      setSpinner(false);
     }, 1000);
   }, []);
 
@@ -56,7 +57,7 @@ const Home = () => {
         />
         <Button
           onClick={handleSearchFilter}
-          variant="primary"
+          variant="success"
           id="button-addon2"
         >
           Search
@@ -76,7 +77,7 @@ const Home = () => {
 
       {spinner ? (
         <div className="spinner-box">
-          <PuffLoader color="#3f90fc" size={50} />
+          <PuffLoader color="#4aa96c" size={50} />
         </div>
       ) : (
         <section className="container my-4">

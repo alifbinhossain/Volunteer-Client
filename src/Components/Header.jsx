@@ -1,10 +1,10 @@
 import React from "react";
 import logo from "../images/logos/Group 1329.png";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
-  const activeStyle = { color: "#3f90fc" };
+  const activeStyle = { color: "#4aa96c" };
 
   return (
     <Navbar expand="lg" fixed="top">
@@ -24,11 +24,13 @@ const Header = () => {
             <Nav.Link activeStyle={activeStyle} as={NavLink} to="/events">
               Events
             </Nav.Link>
-            <Nav.Link activeStyle={activeStyle} as={NavLink} to="/blog">
-              Blog
+            <Nav.Link activeStyle={activeStyle} as={NavLink} to="/login">
+              Login
             </Nav.Link>
 
-            <button className="btn btn-primary  mx-3">Register</button>
+            <Link to="/register">
+              <button className="btn btn-success mx-lg-3">Register</button>
+            </Link>
             <button className="btn btn-dark ">Admin</button>
           </Nav>
         </Navbar.Collapse>

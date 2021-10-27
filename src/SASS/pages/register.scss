@@ -1,0 +1,38 @@
+.register {
+  &__form {
+    padding: 3rem;
+    &--content {
+      color: $color-green-dark;
+
+      input,
+      textarea {
+        width: 100%;
+        border: none;
+        margin-bottom: 10px;
+        background-color: transparent;
+        border-bottom: 1px solid $color-green-dark;
+        padding: 10px 0;
+        color: $color-green-light;
+
+        &::placeholder {
+          color: $color-green-dark;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+      small {
+        display: block;
+        font-size: 12px;
+        margin-top: -6px;
+        color: $color-white;
+      }
+
+      .btn-submit {
+        background-color: $color-green-dark !important;
+        color: $color-white;
+      }
+    }
+  }
+}
