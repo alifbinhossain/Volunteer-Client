@@ -1,4 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./App.css";
 import Header from "./Components/Header";
 import PrivateRoute from "./Components/PrivateRoute";
@@ -9,8 +11,18 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import MyEvents from "./Pages/MyEvents";
 import Registration from "./Pages/Registration";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      offset: 150,
+      delay: 100,
+      duration: 900,
+      easing: "ease",
+    });
+  });
+
   return (
     <AuthProvider>
       <BrowserRouter>

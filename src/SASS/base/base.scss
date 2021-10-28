@@ -19,6 +19,8 @@ main {
   font-family: "Poppins", sans-serif;
   padding-top: 10vh;
   background-color: #fff;
+  max-width: 100vw;
+  overflow-x: hidden !important;
 }
 
 .home,
@@ -35,7 +37,7 @@ main {
 /* -------------------------------------------------------------------------- */
 @media (max-width: 668px) {
   main {
-    padding-top: 8vh;
+    padding-top: 9vh;
   }
 
   .home,
@@ -45,6 +47,6 @@ main {
   .no-event,
   .private-route-pre-loader-box,
   .spinner-box {
-    min-height: 92vh;
+    min-height: 91vh;
   }
 }

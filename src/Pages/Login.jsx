@@ -28,9 +28,9 @@ const Login = () => {
           <button className="btn-social" onClick={handleSignInWithGoogle}>
             <FcGoogle className="social-icon" /> Continue with Google
           </button>
-          <p>
+          {/* <p>
             Don't have an account? <Link to="/register">please register..</Link>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

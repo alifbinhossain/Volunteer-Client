@@ -4,3 +4,11 @@
     width: 8rem;
   }
 }
+
+@media (max-width: 668px) {
+  .navbar {
+    .button-100 {
+      width: 100%;
+    }
+  }
+}

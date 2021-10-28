@@ -16,7 +16,7 @@ const Event = ({ event }) => {
   const randomBg = bg[Math.floor(Math.random() * 8)];
 
   return (
-    <Card className="event">
+    <Card className="event" data-aos="fade-in">
       <Card.Img variant="top" src={img} />
       <Card.Body className={`${randomBg}  event__body`}>
         <Card.Title className="event__body--title">{title}</Card.Title>

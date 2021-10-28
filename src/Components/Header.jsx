@@ -28,11 +28,18 @@ const Header = () => {
             </Nav.Link>
 
             <Link to="/register/Child Support">
-              <button className="btn btn-success mx-lg-3">Register</button>
+              <button className="btn btn-success mx-lg-3 button-100">
+                Register
+              </button>
             </Link>
-            <button className="btn btn-success ">Admin</button>
+            <button className="btn btn-success my-2 my-lg-0 button-100">
+              Admin
+            </button>
             {user && (
-              <button className=" ms-3 btn btn-dark" onClick={logOut}>
+              <button
+                className=" ms-lg-3 btn btn-dark button-100"
+                onClick={logOut}
+              >
                 Sign Out
               </button>
             )}
