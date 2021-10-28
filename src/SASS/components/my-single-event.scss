@@ -1,0 +1,39 @@
+.my-single-event {
+  height: 200px;
+  width: 350px;
+  overflow: hidden !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border: 2px solid $color-green-dark !important;
+  border-radius: 6px !important;
+
+  img {
+    width: 40%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  small {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0;
+
+    span {
+      font-weight: 600;
+    }
+  }
+  .btn-delete {
+    display: block;
+    border: none;
+    width: max-content;
+    font-size: 14px;
+    padding: 8px 16px;
+    background-color: $color-green-dark;
+    border-radius: 3px;
+    color: $color-white;
+
+    &:active {
+      transform: scale(0.98);
+      box-shadow: rgba(0, 0, 0, 0.1);
+    }
+  }
+}

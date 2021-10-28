@@ -1,8 +1,18 @@
 import axios from "axios";
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router";
+import useFirebase from "../hooks/useFirebase";
 
 const Registration = () => {
+  const [allEvents, setAllEvents] = useState([]);
+  const { event } = useParams();
+  const { user } = useFirebase();
+  const date = new Date();
+  console.log(date);
+
   const {
     register,
     reset,
@@ -16,8 +26,9 @@ const Registration = () => {
       .post("http://localhost:5000/volunteer", {
         name: data.fullName,
         email: data.email,
-        data: data.date || null,
+        date: data.date || null,
         description: data.description || null,
+        event: data.event,
       })
       .then((data) => {
         const isAdded = data.data.insertedId;
@@ -27,6 +38,12 @@ const Registration = () => {
         }
       });
   };
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/events/titles")
+      .then((data) => setAllEvents(data.data));
+  }, []);
 
   return (
     <div className="register">
@@ -38,6 +55,7 @@ const Registration = () => {
             <input
               placeholder="Full Name"
               {...register("fullName", { required: true })}
+              defaultValue={user?.displayName}
             />
             {errors.fullName?.type === "required" && (
               <small>Name is required</small>
@@ -46,12 +64,11 @@ const Registration = () => {
             <input
               placeholder="Email"
               {...register("email", { required: true })}
+              defaultValue={user?.email}
             />
             {errors.email?.type === "required" && (
               <small>Email is required</small>
             )}
-
-            <input placeholder="Date" {...register("date")} />
 
             <textarea
               placeholder="Description"
@@ -59,6 +76,17 @@ const Registration = () => {
               rows="2"
               {...register("description")}
             />
+            <input type="date" placeholder="Date" {...register("date")} />
+
+            <select {...register("event", { required: true })}>
+              <option value={event}>{event}</option>
+              {allEvents.map((event) => (
+                <option value={event}>{event}</option>
+              ))}
+            </select>
+            {errors.event?.type === "required" && (
+              <small>Event is required</small>
+            )}
 
             <input className="btn-submit mt-3" type="submit" />
           </form>

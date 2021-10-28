@@ -2,9 +2,11 @@ import React from "react";
 import logo from "../images/logos/Group 1329.png";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
+import useFirebase from "../hooks/useFirebase";
 
 const Header = () => {
   const activeStyle = { color: "#4aa96c" };
+  const { user, logOut } = useFirebase();
 
   return (
     <Navbar expand="lg" fixed="top">
@@ -21,17 +23,19 @@ const Header = () => {
             <Nav.Link activeStyle={activeStyle} as={NavLink} to="/donation">
               Donation
             </Nav.Link>
-            <Nav.Link activeStyle={activeStyle} as={NavLink} to="/events">
-              Events
-            </Nav.Link>
-            <Nav.Link activeStyle={activeStyle} as={NavLink} to="/login">
-              Login
+            <Nav.Link activeStyle={activeStyle} as={NavLink} to="/myevents">
+              My Events
             </Nav.Link>
 
-            <Link to="/register">
+            <Link to="/register/Child Support">
               <button className="btn btn-success mx-lg-3">Register</button>
             </Link>
-            <button className="btn btn-dark ">Admin</button>
+            <button className="btn btn-success ">Admin</button>
+            {user && (
+              <button className=" ms-3 btn btn-dark" onClick={logOut}>
+                Sign Out
+              </button>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

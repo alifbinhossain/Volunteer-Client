@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import { Button, Col, FormControl, InputGroup, Row } from "react-bootstrap";
+import { useHistory } from "react-router";
 import { PuffLoader } from "react-spinners";
 import Event from "../Components/Event";
 
@@ -11,8 +12,8 @@ const Home = () => {
   const [searchResult, setSearchResult] = useState(null);
   const [totalFound, setTotalFound] = useState(null);
   const [spinner, setSpinner] = useState(true);
-
   const inputRef = useRef();
+  const history = useHistory();
 
   useEffect(() => {
     setSpinner(true);
@@ -40,6 +41,10 @@ const Home = () => {
       setSpinner(false);
       inputRef.current.value = "";
     }, 1500);
+  };
+
+  const handleGoToRegister = (event) => {
+    history.push(`/register/${event}`);
   };
 
   return (
@@ -83,7 +88,10 @@ const Home = () => {
         <section className="container my-4">
           <Row xs={1} md={3} lg={4} className="g-4">
             {displayEvents.map((event) => (
-              <Col key={event._id}>
+              <Col
+                key={event._id}
+                onClick={() => handleGoToRegister(event.title)}
+              >
                 <Event event={event}></Event>
               </Col>
             ))}

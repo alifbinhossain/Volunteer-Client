@@ -5,7 +5,8 @@
       color: $color-green-dark;
 
       input,
-      textarea {
+      textarea,
+      select {
         width: 100%;
         border: none;
         margin-bottom: 10px;
@@ -22,6 +23,10 @@
           outline: none;
         }
       }
+
+      select option {
+        background-color: rgba(0, 0, 0, 1) !important;
+      }
       small {
         display: block;
         font-size: 12px;
@@ -32,6 +37,7 @@
       .btn-submit {
         background-color: $color-green-dark !important;
         color: $color-white;
+        border-radius: 4px;
       }
     }
   }
