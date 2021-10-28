@@ -7,7 +7,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: violet;
 }
 
 code {
@@ -18,5 +17,34 @@ code {
 main {
   // font-family: "Jost", sans-serif;
   font-family: "Poppins", sans-serif;
-  padding-top: 12vh;
+  padding-top: 10vh;
+  background-color: #fff;
+}
+
+.home,
+.form,
+.donation,
+.my-events,
+.no-event,
+.private-route-pre-loader-box {
+  min-height: 90vh;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  main {
+    padding-top: 8vh;
+  }
+
+  .home,
+  .form,
+  .donation,
+  .my-events,
+  .no-event,
+  .private-route-pre-loader-box,
+  .spinner-box {
+    min-height: 92vh;
+  }
 }

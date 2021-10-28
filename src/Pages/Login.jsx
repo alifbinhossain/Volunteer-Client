@@ -2,11 +2,11 @@ import React from "react";
 // import logo from "../images/logos/Group 1329.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import useFirebase from "../hooks/useFirebase";
 import { useHistory, useLocation } from "react-router";
+import useAuth from "../hooks/useAuth";
 
 const Login = () => {
-  const { signInWithGoogle } = useFirebase();
+  const { signInWithGoogle } = useAuth();
   const location = useLocation();
   const history = useHistory();
 

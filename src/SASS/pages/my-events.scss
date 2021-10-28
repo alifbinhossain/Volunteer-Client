@@ -1,5 +1,4 @@
 .my-events {
-  min-height: 88vh;
   background-color: $color-green-light;
   padding: 2rem 0;
   color: $color-green-dark;
@@ -10,7 +9,6 @@
 }
 
 .no-event {
-  min-height: 88vh;
   padding: 2rem 6rem;
   display: flex;
   align-items: center;
@@ -30,5 +28,27 @@
 
   a {
     color: $color-green-dark;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  .my-events {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+  .no-event {
+    padding: 2rem;
+    flex-direction: column;
+
+    h2 {
+      font-size: 50px;
+    }
+    img {
+      width: 20rem;
+    }
   }
 }

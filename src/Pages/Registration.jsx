@@ -4,12 +4,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
-import useFirebase from "../hooks/useFirebase";
+import useAuth from "../hooks/useAuth";
 
 const Registration = () => {
   const [allEvents, setAllEvents] = useState([]);
   const { event } = useParams();
-  const { user } = useFirebase();
+  const { user } = useAuth();
   const date = new Date();
   console.log(date);
 
@@ -23,7 +23,7 @@ const Registration = () => {
   const onSubmit = (data) => {
     console.log(data);
     axios
-      .post("http://localhost:5000/volunteer", {
+      .post("https://agile-tundra-46562.herokuapp.com/volunteer", {
         name: data.fullName,
         email: data.email,
         date: data.date || null,
@@ -41,7 +41,7 @@ const Registration = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/events/titles")
+      .get("https://agile-tundra-46562.herokuapp.com/events/titles")
       .then((data) => setAllEvents(data.data));
   }, []);
 

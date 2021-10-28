@@ -19,13 +19,13 @@ const Home = () => {
     setSpinner(true);
     setTimeout(() => {
       setSpinner(true);
-      axios("http://localhost:5000/events").then((data) => {
+      axios("https://agile-tundra-46562.herokuapp.com/events").then((data) => {
         console.log(data);
         setEvents(data.data);
         setDisplayEvents(data.data);
         setSpinner(false);
       });
-    }, 1000);
+    }, 500);
   }, []);
 
   const handleSearchFilter = () => {
@@ -40,7 +40,7 @@ const Home = () => {
       setTotalFound(searchedEvents.length);
       setSpinner(false);
       inputRef.current.value = "";
-    }, 1500);
+    }, 1000);
   };
 
   const handleGoToRegister = (event) => {

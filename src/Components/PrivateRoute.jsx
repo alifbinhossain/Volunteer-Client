@@ -1,17 +1,16 @@
 import React from "react";
 import { Redirect, Route } from "react-router";
 import { PuffLoader } from "react-spinners";
-import useFirebase from "../hooks/useFirebase";
+import useAuth from "../hooks/useAuth";
 
 const PrivateRoute = ({ children, ...rest }) => {
-  const { user, loading } = useFirebase();
+  const { user, loading } = useAuth();
 
   if (loading) {
     return (
       <div
-        className="spinner-box"
+        className="private-route-pre-loader-box"
         style={{
-          minHeight: "88vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

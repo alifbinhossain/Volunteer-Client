@@ -6,15 +6,15 @@ import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { PuffLoader } from "react-spinners";
 import MySingleEvent from "../Components/MySingleEvent";
-import useFirebase from "../hooks/useFirebase";
+import useAuth from "../hooks/useAuth";
 import image from "../images/others/no-events.png";
 
 const MyEvents = () => {
   const [events, setEvents] = useState([]);
-  const { user } = useFirebase();
+  const { user } = useAuth();
   const [loading, setLoading] = useState(true);
 
-  const url = `http://localhost:5000/volunteer/${user?.email}`;
+  const url = `https://agile-tundra-46562.herokuapp.com/volunteer/${user?.email}`;
   useEffect(() => {
     setLoading(true);
 
@@ -31,7 +31,7 @@ const MyEvents = () => {
       "Are you sure you don't want to work with this event?"
     );
     if (proceed) {
-      const url = `http://localhost:5000/volunteer/event/${id}`;
+      const url = `https://agile-tundra-46562.herokuapp.com/volunteer/event/${id}`;
       axios.delete(url).then((data) => {
         const isDeleted = data.data.deletedCount;
         if (isDeleted) {

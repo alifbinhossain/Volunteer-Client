@@ -2,11 +2,11 @@ import React from "react";
 import logo from "../images/logos/Group 1329.png";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
-import useFirebase from "../hooks/useFirebase";
+import useAuth from "../hooks/useAuth";
 
 const Header = () => {
   const activeStyle = { color: "#4aa96c" };
-  const { user, logOut } = useFirebase();
+  const { user, logOut } = useAuth();
 
   return (
     <Navbar expand="lg" fixed="top">
